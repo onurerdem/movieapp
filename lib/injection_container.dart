@@ -5,9 +5,7 @@ import 'package:movieapp/data/repositories/movie_repository_impl.dart';
 import 'package:movieapp/domain/repositories/movie_repository.dart';
 import 'package:movieapp/domain/usecases/get_popular_movies.dart';
 import 'package:movieapp/domain/usecases/get_trending_movies.dart';
-import 'package:movieapp/domain/usecases/search_movie.dart';
 import 'package:movieapp/presentation/bloc/popular_movies/popular_movies_bloc.dart';
-import 'package:movieapp/presentation/bloc/search_movies/search_movies_bloc.dart';
 import 'package:movieapp/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,12 +15,10 @@ void init() {
   // Bloc
   getIt.registerFactory(() => PopularMoviesBloc(getPopularMovies: getIt()));
   getIt.registerFactory(() => TrendingMoviesBloc(getTrendingMovies: getIt()));
-  getIt.registerFactory(() => SearchMoviesBloc(searchMovies: getIt()));
 
   // Use cases
   getIt.registerLazySingleton(() => GetPopularMovies(getIt()));
   getIt.registerLazySingleton(() => GetTrendingMovies(getIt()));
-  getIt.registerLazySingleton(() => SearchMovies(getIt()));
 
   // Repositories
   getIt.registerLazySingleton<MovieRepository>(() => MovieRepositoryImpl(remoteDataSource: getIt()));

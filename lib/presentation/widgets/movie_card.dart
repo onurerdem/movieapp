@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/domain/entities/movie.dart';
+import 'package:movieapp/util/constants.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard(this.movie, () param1, {super.key});
@@ -19,7 +20,7 @@ class MovieCard extends StatelessWidget {
         height: 200,
         width: 200,
         child: Ink.image(
-          image: NetworkImage('https://image.tmdb.org/t/p/w500/${movie.posterPath}'),
+          image: NetworkImage('${NETWORK_IMAGE}${movie.posterPath}'),
           fit: BoxFit.cover,
         ),
       ),

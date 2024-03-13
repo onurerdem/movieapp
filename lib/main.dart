@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movieapp/injection_container.dart';
 import 'package:movieapp/presentation/bloc/popular_movies/popular_movies_bloc.dart';
 import 'package:movieapp/presentation/bloc/popular_movies/popular_movies_event.dart';
-import 'package:movieapp/presentation/bloc/search_movies/search_movies_bloc.dart';
 import 'package:movieapp/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:movieapp/presentation/bloc/trending_movies/trending_movies_event.dart';
 import 'package:movieapp/presentation/pages/home_screen.dart';
@@ -29,9 +28,6 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => getIt<TrendingMoviesBloc>()..add(FetchTrendingMovies()),
-          ),
-          BlocProvider(
-            create: (context) => getIt<SearchMoviesBloc>(),
           ),
         ],
         child: const HomeScreen(),
